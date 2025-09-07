@@ -1,0 +1,18 @@
+proxies:
+  - name: "Iran Proxy"
+    type: http
+    server: 185.105.102.179
+    port: 80
+    tls: false
+
+proxy-groups:
+  - name: "Auto"
+    type: select
+    proxies:
+      - "Iran Proxy"
+      - DIRECT
+
+rules:
+  - DOMAIN-SUFFIX,ir,DIRECT
+  - DOMAIN-SUFFIX,telegram.org,Auto
+  - DOMAIN-SUFFIX,youtube.com,Auto
